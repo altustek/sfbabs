@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Web Map</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <style>
+        #mapid { height: 100vh; }
+    </style>
+</head>
+<body>
+
+<div id="mapid"></div>
+
+<script>
+    // Initialize the map and set its view to a chosen geographical coordinates and a zoom level
+    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+
+    // Add an OpenStreetMap tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(mymap);
+
+    // Add a marker at the same coordinates
+    var marker = L.marker([51.505, -0.09]).addTo(mymap);
+</script>
+
+</body>
+</html>
